@@ -26,13 +26,13 @@ const images = [
     ];
     
 const galleryList = document.querySelector(".gallery");
-images.forEach((image) => {
-    const item = document.createElement("li");
-    item.insertAdjacentHTML("beforeend", `<img src="${image.url}" alt="${image.alt}" width="300" height="200">`);
-    galleryList.append(item);
-})
 
-galleryList.classList.add('gallery-flexbox');
+const galleryItems = images.map(image => 
+`<li>
+    <img src="${image.url}" alt="${image.alt}" width="320" height="240" />
+</li>`).join("")
+
+galleryList.insertAdjacentHTML("beforeend", galleryItems)
 
 galleryList.style.display = 'flex';
 galleryList.style.flexWrap = 'wrap';

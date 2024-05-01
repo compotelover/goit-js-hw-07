@@ -8,7 +8,7 @@ destroyBtn.addEventListener("click", destroyBoxes);
 
 function checkBoxes() {
     const amount = Number(input.value);
-    if (amount >= 1 && amount <= 100) {
+    if (amount >= 1 && amount <= 10000) {
         createBoxes(amount);
     }
 }
@@ -16,14 +16,16 @@ function checkBoxes() {
 function createBoxes(amount) {
     boxes.innerHTML = "";
 
+    const boxesHtml = [];
+
     for (let i = 0; i < amount; i++) {
         const box = document.createElement("div");
         box.style.width = 30 + 10 * i + "px";
         box.style.height = 30 + 10 * i + "px";
         box.style.backgroundColor = getRandomHexColor();
-        boxes.append(box)
+        boxesHtml.push(box)
     }
-
+    boxes.append(...boxesHtml);
     input.value = "";
 }
 
